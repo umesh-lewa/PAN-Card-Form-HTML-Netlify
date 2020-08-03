@@ -291,7 +291,7 @@
   <TD>&nbsp;</TD>
   <TD><B>Country</B></TD>
   <TD>
-    <SELECT NAME="CPUNTRY" >
+    <SELECT NAME="COUNTRY" >
 
 </SELECT>
   </TD>
@@ -459,28 +459,27 @@
     <input type="radio" NAME="CITIZENID" >EID
 </TD>
 </TR>
-<TR style="display:" id="RowAADHAR">
-   <TD><INPUT TYPE=CHECKBOX id = "aadharChk" NAME="PAN_AADHAR_CHK" VALUE="Y" ></TD>
-   <TD><B><FONT COLOR=RED>*</FONT> 12. AADHAAR number : </B></TD> 
+<TR style="display:" id="AADHAR">
+   <TD><INPUT TYPE=CHECKBOX  NAME="AADHARCHECK" VALUE="Y" ></TD>
+   <TD><B>* 12. AADHAAR number : </B></TD> 
    <TD colspan="2">
-      <INPUT TYPE=text id = PAN_AADHAR_NUM NAME=PAN_AADHAR_NUM VALUE="" size="12" MAXLENGTH="12" onkeyup="disableAadharPaymode();" onblur="disableAadharPaymode()">
-      <input type="hidden" id="strAadhaarName" name="strAadhaarName" value="" /> <br/>
-      <i><b><font color="#00008B">In case AADHAAR number is provided, <br/>then proof of AADHAAR along with supporting documents is to be submitted to NSDL</font></b></i>
+      <INPUT TYPE=text  NAME=AADHARNUM >
+      <i><b><font>In case AADHAAR number is provided, <br/>then proof of AADHAAR along with supporting documents is to be submitted to NSDL</font></b></i>
    </TD> 
 </TR>
 
-<TR style="display: none" id="RowEID">
-   <TD><INPUT TYPE=CHECKBOX id = "eidChk" NAME="PAN_EID_CHK" VALUE="Y" ></TD>
-   <TD><B><FONT COLOR=RED>*</FONT> 12. Enrollment ID (EID) : </B></TD>
+<TR style="display: none" id="EID">
+   <TD><INPUT TYPE=CHECKBOX  NAME="EIDCHECK" VALUE="Y" ></TD>
+   <TD><B>* 12. Enrollment ID (EID) : </B></TD>
     <TD> 
-       <INPUT TYPE=text NAME=PAN_EID_NUM id="PAN_EID_NUM" VALUE="" MAXLENGTH="28" size="30">
+       <INPUT TYPE=text NAME=EIDNUMBER >
      </TD>
 </TR>
 
-<TR id="RowName">
+<TR id="rowname">
 <TD> </TD>
-  <TD><FONT COLOR=RED>*</FONT> Name as per AADHAAR letter <br/>or <br/>as per the enrollment ID of Aadhaar application form</TD>
-  <TD colspan=2><INPUT TYPE=text NAME="PAN_ADH_MN_NM" id="PAN_ADH_MN_NM" VALUE="" SIZE=100 MAXLENGTH=100></TD>
+  <TD>* Name as per AADHAAR letter <br/>or <br/>as per the enrollment ID of Aadhaar application form</TD>
+  <TD colspan=2><INPUT TYPE=text NAME="AADHARNAME" ></TD>
 </TR>
 
 <TR>
@@ -502,28 +501,28 @@
 <TR>
   <TD>&nbsp;</TD>
   <TD><B>13. GSTN</B></TD>
-  <TD><INPUT TYPE=text NAME=PAN_GSTN_NUM VALUE="" SIZE=15 MAXLENGTH=15></TD>
+  <TD><INPUT TYPE=text NAME=GSTNNUMBER ></TD>
 </TR>
 
 
 <TR>
-  <TD><INPUT TYPE=CHECKBOX NAME="PAN_NUM_CHK" VALUE="Y" ></TD>
+  <TD><INPUT TYPE=CHECKBOX NAME="OANNUMBERSOTHERS" VALUE="Y" ></TD>
   <TD COLSPAN=2><B> 14. Mention other Permanent Account Numbers (PANs) if any,inadvertently allotted to you. <U>Submit
   proof of surrendered PAN(s) along with the application</U>.</B> </TD>
 </TR>
 
 <TR>
   <TD>&nbsp;</TD>
-  <TD><B>PAN1</B> <INPUT TYPE=text NAME=PAN_NUM1 VALUE="" SIZE=20 MAXLENGTH=10> 
+  <TD><B>PAN1</B> <INPUT TYPE=text NAME=PANNUM1 > 
 </TD>
-  <TD><B>PAN2</B> <INPUT TYPE=text NAME=PAN_NUM2 VALUE="" SIZE=20 MAXLENGTH=10> 
+  <TD><B>PAN2</B> <INPUT TYPE=text NAME=PANNUM2 > 
 </TD>
 </TR>
 <TR>
   <TD>&nbsp;</TD>
-  <TD><B>PAN3</B> <INPUT TYPE=text NAME=PAN_NUM3 VALUE="" SIZE=20 MAXLENGTH=10> 
+  <TD><B>PAN3</B> <INPUT TYPE=text NAME=PANNUM3 > 
 </TD>
-  <TD><B>PAN4</B> <INPUT TYPE=text NAME=PAN_NUM4 VALUE="" SIZE=20 MAXLENGTH=10> 
+  <TD><B>PAN4</B> <INPUT TYPE=text NAME=PANNUM4 > 
 </TD>
 </TR>
 
@@ -536,14 +535,14 @@
     <TD>&nbsp;</TD>
     <TD COLSPAN=2 VALIGN=TOP>I/We 
     &nbsp;&nbsp;&nbsp;&nbsp;
-    <INPUT TYPE=text NAME=PAN_VERIFY_NAME VALUE=""  SIZE=75 MAXLENGTH=75 /> 
+    <INPUT TYPE=text NAME=VERIFY /> 
     ,the applicant,in the capacity of
     &nbsp;&nbsp;&nbsp;
-    <SELECT NAME=PAN_VERIFY_CAPACITY>
+    <SELECT NAME=VERIFYCAPACITY>
 
         </SELECT>
     do hereby declare that what is stated above is true to the best of my information and belief. <BR>
-    I have enclosed <INPUT TYPE=text NAME=PAN_NOCOPY VALUE="" SIZE=2 MAXLENGTH=2>
+    I have enclosed <INPUT TYPE=text NAME=PAN_NOCOPY >
     (number of documents) in support of proposed changes/corrections.
   </TD>
 </TR>
@@ -736,31 +735,12 @@
  
 </font>
 
-</TR>
-<TR>
-    For Paperless PAN Application: <input type="radio" id="show" name="app_name" value="Y" checked="checked"  checked >Yes <input type="radio" id="hide"
-      name="app_name" value="N" disabled >No
-      
-    <td id="id1">
-
-      <input type="radio" name="sign_type" value="DSC" id="dsc" align="center" checked="checked" onclick="disableElements()" /> DSC
-                        <select name="USER_TYPE" id="DSCDrop" style="WIDTH: 200px; HEIGHT: 22px">
-       <option value="select"  >--Select--</option>
-       <option value="MINOR" >Minor</option>
-       <option value="RA"  >Lunatic/Idiot</option>
-       <option value="AP"  >Self</option>
-      </select>
-      &nbsp;&nbsp;&nbsp;      <a href="/pan/InstructionDSC.html" target="_new">Guidelines for DSC user</a>
-      <input type="hidden" name="dsc" id="dsc1">
-    </td>
-      
-</TR>
 <TR id="id3">                
     <TD align="left" >
                  UPLOAD PHOTO
                 </TD>
                 <TD>
-                <input id="PIC_FILE_NAME" type="file" name="PIC_FILE_NAME" />
+                <input type="file" name="PIC_FILE_NAME" />
                 </TD>
                 <TD>
                 <div id="PIC_FILE_NAME_MSG" > </div>
@@ -770,11 +750,11 @@
                  UPLOAD SIGNATURE
                 </TD>
                 <TD>
-                <input id="SIGN_FILE_NAME" type="file" name="SIGN_FILE_NAME"   />
+                <input type="file" name="SIGN_FILE_NAME"   />
                 </TD>
     
                 <TD>
-                <div id="SIGN_FILE_NAME_MSG" > </div>
+                <div > </div>
                 </TD>
 </TR>
 <TR id="id4" >
@@ -782,16 +762,16 @@
                  UPLOAD SIGNATURE
                 </TD>
                 <TD>
-                <input id="DOC_FILE_NAME" type="file"   name="DOC_FILE_NAME" />
+                <input type="file"   name="DOC_FILE_NAME" />
                 </TD>
 
                 <TD>
-                 <div id="DOC_FILE_NAME_MSG" ></div><p id="demo"></p> 
+                 <div ></div><p id="demo"></p> 
                 </TD>
     <TD align="center">OR&nbsp;&nbsp;</TD>
 </TR>
 <TR id="id5">
-    <TD align="left"><DIV class="share_fm_dl" id=""></DIV></TD>
+    <TD align="left"><DIV class="share_fm_dl" ></DIV></TD>
 
 </TR>
 
